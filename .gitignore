@@ -5,3 +5,5 @@
 /build/
 /FraudValidator-ejb/build/
 /FraudValidator-ejb/dist/
+/nbproject/private/
+/FraudValidator-ejb/nbproject/private/
