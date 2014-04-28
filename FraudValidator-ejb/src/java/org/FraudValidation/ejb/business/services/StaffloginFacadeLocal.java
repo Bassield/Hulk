@@ -10,7 +10,7 @@ import org.FraudValidation.ejb.business.domain.Stafflogin;
 
 /**
  *
- * @author walker
+ * @author Lebogang
  */
 @Local
 public interface StaffloginFacadeLocal {
@@ -28,5 +28,9 @@ public interface StaffloginFacadeLocal {
     List<Stafflogin> findRange(int[] range);
 
     int count();
+    
+    boolean validateLogin(String uName, String pass);
+    
+    List staffInformation(String uName);
     
 }

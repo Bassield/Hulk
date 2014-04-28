@@ -6,16 +6,22 @@ package org.fraudvalidation.web.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.FraudValidation.ejb.business.services.StaffloginFacadeLocal;
+import org.fraudvalidation.web.Beans.LoginBean;
 
 /**
  *
- * @author walker
+ * @author Lebogang
  */
 public class LoginServlet extends HttpServlet {
+    @EJB
+    private StaffloginFacadeLocal staffloginFacade = null;
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -24,11 +30,23 @@ public class LoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        LoginBean loginBean = new LoginBean();
         try {
+            loginBean.setUsername(request.getParameter("username"));
+            loginBean.setPassword(request.getParameter("username"));
+            boolean isValid = staffloginFacade.validateLogin(loginBean.getUsername(), loginBean.getPassword());
+            if (isValid){
+                HttpSession session = request.getSession(true);
+                
+                session.setAttribute("currentSessionUser",loginBean);
+            }else{
+                
+            }
             
         } finally {            
             out.close();

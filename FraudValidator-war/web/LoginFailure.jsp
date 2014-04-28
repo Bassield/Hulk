@@ -1,7 +1,7 @@
 <%-- 
-    Document   : index
-    Created on : Apr 16, 2014, 2:45:10 AM
-    Author     : walker
+    Document   : LoginFailure
+    Created on : Apr 26, 2014, 2:18:26 PM
+    Author     : Lebogang
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login Page</title>
+        <title>Authentication Failed</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Authentication Failed</h1>
     </body>
 </html>
